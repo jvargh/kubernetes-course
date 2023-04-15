@@ -37,7 +37,7 @@ steps:
     enableTransforms: false
     enableTelemetry: true
 
-- script: type 02_kubernetes_aks/app-deploy.yaml
+- script: type 02_kubernetes_aks\app-deploy.yaml
 
 - task: Kubernetes@1
   displayName: Kubernetes Deploy
