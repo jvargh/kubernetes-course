@@ -16,7 +16,7 @@ steps:
 - task: AzureCLI@2
   displayName: Docker Build & Push
   inputs:
-    azureSubscription: 'azure-devops'
+    azureSubscription: 'ME-MngEnv254029-varghesejoji(bc41e458-a78f-4fc1-b659-5231b5b8fe9b)'
     scriptType: 'bash'
     scriptLocation: 'inlineScript'
     inlineScript: |
