@@ -11,11 +11,12 @@ variables:
 
 steps:
 
+
 - task: AzureCLI@2
   displayName: Docker Build & Push
   inputs:
     azureSubscription: 'aksha'
-    scriptType: 'bash'
+    scriptType: 'ps'
     scriptLocation: 'inlineScript'
     inlineScript: |
       docker build -t acrjv1971.azurecr.io/webapp:$(tag) app-dotnet
