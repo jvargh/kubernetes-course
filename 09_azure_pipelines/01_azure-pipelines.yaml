@@ -53,7 +53,7 @@ steps:
     enableTransforms: false
     enableTelemetry: true
 
-- script: cat 02_kubernetes_aks/app-deploy.yaml
+# - script: cat 02_kubernetes_aks/app-deploy.yaml
 
 # - task: Kubernetes@1
 #   inputs:
