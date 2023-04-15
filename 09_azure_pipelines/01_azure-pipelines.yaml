@@ -11,16 +11,16 @@ variables:
 
 steps:
 
-- task: AzureCLI@2
-  displayName: Docker Build & Push
-  inputs:
-    azureSubscription: 'aksha'
-    scriptType: 'ps'
-    scriptLocation: 'inlineScript'
-    inlineScript: |
-      docker build -t $(acr_name).azurecr.io/webapp:$(tag) app-dotnet
-      az acr login -n $(acr_name)
-      docker push $(acr_name).azurecr.io/webapp:$(tag)
+# - task: AzureCLI@2
+#   displayName: Docker Build & Push
+#   inputs:
+#     azureSubscription: 'aksha'
+#     scriptType: 'ps'
+#     scriptLocation: 'inlineScript'
+#     inlineScript: |
+#       docker build -t $(acr_name).azurecr.io/webapp:$(tag) app-dotnet
+#       az acr login -n $(acr_name)
+#       docker push $(acr_name).azurecr.io/webapp:$(tag)
       
 - task: replacetokens@4
   displayName: 'Replace Image TAG'
@@ -39,16 +39,16 @@ steps:
 
 - script: type 02_kubernetes_aks\app-deploy.yaml
 
-- task: Kubernetes@1
-  displayName: Kubernetes Deploy
-  inputs:
-    connectionType: 'Azure Resource Manager'
-    azureSubscriptionEndpoint: 'aksha'
-    azureResourceGroup: 'aksha'
-    kubernetesCluster: 'aksha'
-    namespace: 'default'
-    command: 'apply'
-    useConfigurationFile: true
-    configuration: '02_kubernetes_aks'
-    secretType: 'dockerRegistry'
-    containerRegistryType: 'Azure Container Registry'
+# - task: Kubernetes@1
+#   displayName: Kubernetes Deploy
+#   inputs:
+#     connectionType: 'Azure Resource Manager'
+#     azureSubscriptionEndpoint: 'aksha'
+#     azureResourceGroup: 'aksha'
+#     kubernetesCluster: 'aksha'
+#     namespace: 'default'
+#     command: 'apply'
+#     useConfigurationFile: true
+#     configuration: '02_kubernetes_aks'
+#     secretType: 'dockerRegistry'
+#     containerRegistryType: 'Azure Container Registry'
