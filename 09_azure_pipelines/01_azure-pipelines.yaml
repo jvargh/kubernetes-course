@@ -39,7 +39,7 @@ steps:
 - task: replacetokens@4
   displayName: 'Replace Image TAG'
   inputs:
-    rootDirectory: '../02_kubernetes_aks'
+    rootDirectory: '..\02_kubernetes_aks'
     targetFiles: 'app-deploy.yaml'
     encoding: 'auto'
     writeBOM: true
