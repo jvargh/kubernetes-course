@@ -22,21 +22,6 @@ steps:
       docker build -t acrjv1971.azurecr.io/webapp:$(tag) app-dotnet
       az acr login -n acrjv1971
       docker push acrjv1971.azurecr.io/webapp:$(tag)
-
-# - task: replacetokens@4
-#   inputs:
-#     rootDirectory: '02_kubernetes_aks'
-#     targetFiles: 'app-deploy.yaml'
-#     encoding: 'auto'
-#     tokenPattern: 'default'
-#     writeBOM: true
-#     actionOnMissing: 'warn'
-#     keepToken: false
-#     actionOnNoFiles: 'continue'
-#     enableTransforms: false
-#     enableRecursion: false
-#     useLegacyPattern: false
-#     enableTelemetry: true
       
 - task: replacetokens@4
   displayName: 'Replace Image TAG'
@@ -54,20 +39,6 @@ steps:
     enableTelemetry: true
 
 # - script: cat 02_kubernetes_aks/app-deploy.yaml
-
-# - task: Kubernetes@1
-#   inputs:
-#     connectionType: 'Azure Resource Manager'
-#     azureSubscriptionEndpoint: 'azure-devops'
-#     azureResourceGroup: 'aksha'
-#     kubernetesCluster: 'aksha'
-#     namespace: 'default'
-#     command: 'apply'
-#     useConfigurationFile: true
-#     configuration: '02_kubernetes_aks'
-#     secretType: 'dockerRegistry'
-#     containerRegistryType: 'Azure Container Registry'
-#     azureSubscriptionEndpointForSecrets: 'azure-devops'
 
 - task: Kubernetes@1
   displayName: Kubernetes Deploy
