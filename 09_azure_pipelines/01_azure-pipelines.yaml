@@ -1,11 +1,9 @@
 pool:  
   name: local 
+#   vmImage: ubuntu-latest
 
 trigger: none
 # - main
-
-# pool:
-#   vmImage: ubuntu-latest
 
 variables:
   acr_name: contosoteam7
@@ -16,7 +14,7 @@ steps:
 - task: AzureCLI@2
   displayName: Docker Build & Push
   inputs:
-    azureSubscription: 'ME-MngEnv254029-varghesejoji(bc41e458-a78f-4fc1-b659-5231b5b8fe9b)'
+    azureSubscription: 'aksha'
     scriptType: 'bash'
     scriptLocation: 'inlineScript'
     inlineScript: |
@@ -74,7 +72,7 @@ steps:
   displayName: Kubernetes Deploy
   inputs:
     connectionType: 'Azure Resource Manager'
-    azureSubscriptionEndpoint: 'azure-devops'
+    azureSubscriptionEndpoint: 'aksha'
     azureResourceGroup: 'aksha'
     kubernetesCluster: 'aksha'
     namespace: 'default'
