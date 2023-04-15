@@ -6,7 +6,7 @@ trigger: none
 # - main
 
 variables:
-  acr_name: contosoteam7
+  acr_name: acrjv1971
   tag: 1.0.0-$(Build.BuildId)
 
 steps:
@@ -18,9 +18,9 @@ steps:
     scriptType: 'ps'
     scriptLocation: 'inlineScript'
     inlineScript: |
-      docker build -t acrjv1971.azurecr.io/webapp:$(tag) app-dotnet
-      az acr login -n acrjv1971
-      docker push acrjv1971.azurecr.io/webapp:$(tag)
+      docker build -t $(acr_name).azurecr.io/webapp:$(tag) app-dotnet
+      az acr login -n $(acr_name)
+      docker push $(acr_name).azurecr.io/webapp:$(tag)
       
 - task: replacetokens@4
   displayName: 'Replace Image TAG'
