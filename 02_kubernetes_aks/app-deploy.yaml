@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: webapp
-        image: acrjv1971.azurecr.io/webapp:__tag__
+        image: acrjv1971.azurecr.io/webapp:__TAG__
         # image: houssemdocker/webapp:111
         # image: ACR_NAME/DOCKER_IMAGE:TAG
         # image: __ACR_NAME__.azurecr.io/__DOCKER_IMAGE__:__TAG__
