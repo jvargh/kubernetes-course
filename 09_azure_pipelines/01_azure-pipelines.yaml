@@ -1,11 +1,11 @@
+pool:  
+  name: local 
+
 trigger: none
 # - main
 
 # pool:
 #   vmImage: ubuntu-latest
-
-pool:  
-  name: local 
 
 variables:
   acr_name: contosoteam7
