@@ -17,9 +17,9 @@ steps:
     scriptType: 'bash'
     scriptLocation: 'inlineScript'
     inlineScript: |
-      docker build -t $(acr_name).azurecr.io/webapp:$(tag) app-dotnet
-      az acr login -n $(acr_name)
-      docker push $(acr_name).azurecr.io/webapp:$(tag)
+      docker build -t acrjv1971.azurecr.io/webapp:$(tag) app-dotnet
+      az acr login -n acrjv1971
+      docker push acrjv1971.azurecr.io/webapp:$(tag)
       
 - task: qetza.replacetokens.replacetokens-task.replacetokens@3
   displayName: 'Replace Image TAG'
@@ -42,9 +42,9 @@ steps:
   displayName: Kubernetes Deploy
   inputs:
     connectionType: 'Azure Resource Manager'
-    azureSubscriptionEndpoint: 'aks-spn-ca'
-    azureResourceGroup: 'rg-aks-cluster'
-    kubernetesCluster: 'aks-cluster'
+    azureSubscriptionEndpoint: 'ME-MngEnv254029-varghesejoji'
+    azureResourceGroup: 'aksha'
+    kubernetesCluster: 'aksha'
     namespace: 'default'
     command: 'apply'
     useConfigurationFile: true
