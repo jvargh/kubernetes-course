@@ -27,16 +27,18 @@ steps:
   inputs:
     rootDirectory: '02_kubernetes_aks'
     targetFiles: 'app-deploy.yaml'
-    encoding: 'auto'
-    writeBOM: true
-    actionOnMissing: 'warn'
-    keepToken: false
-    tokenPrefix: '__'
-    tokenSuffix: '__'
-    enableRecursion: false
-    useLegacyPattern: false
-    enableTransforms: false
-    enableTelemetry: true
+    # encoding: 'auto'
+    # writeBOM: true
+    # actionOnMissing: 'warn'
+    # keepToken: false
+    tokenPrefix: '#{'
+    tokenSuffix: '}#'    
+    # tokenPrefix: '__'
+    # tokenSuffix: '__'
+    # enableRecursion: false
+    # useLegacyPattern: false
+    # enableTransforms: false
+    # enableTelemetry: true
 
 - script: type 02_kubernetes_aks\app-deploy.yaml
 
