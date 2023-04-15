@@ -22,25 +22,25 @@ steps:
 #       az acr login -n $(acr_name)
 #       docker push $(acr_name).azurecr.io/webapp:$(tag)
 
-- task: replacetokens@5
-  inputs:
-    targetFiles: '**/*.config'
-    encoding: 'auto'
-    tokenPattern: 'default'
-    writeBOM: true
-    actionOnMissing: 'warn'
-    keepToken: false
-    actionOnNoFiles: 'continue'
-    enableTransforms: false
-    enableRecursion: false
-    useLegacyPattern: false
-    enableTelemetry: true
+# - task: replacetokens@5
+#   inputs:
+#     targetFiles: '**/*.config'
+#     encoding: 'auto'
+#     tokenPattern: 'default'
+#     writeBOM: true
+#     actionOnMissing: 'warn'
+#     keepToken: false
+#     actionOnNoFiles: 'continue'
+#     enableTransforms: false
+#     enableRecursion: false
+#     useLegacyPattern: false
+#     enableTelemetry: true
 
 - task: replacetokens@4
   displayName: 'Replace Image TAG'
   inputs:
-    rootDirectory: '..\02_kubernetes_aks'
-    targetFiles: 'app-deploy.yaml'
+    # rootDirectory: '..\02_kubernetes_aks'
+    targetFiles: '**/app-deploy.yaml'
     encoding: 'auto'
     writeBOM: true
     actionOnMissing: 'warn'
