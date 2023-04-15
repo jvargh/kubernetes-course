@@ -20,6 +20,8 @@ steps:
       docker build -t acrjv1971.azurecr.io/webapp:$(tag) app-dotnet
       az acr login -n acrjv1971
       docker push acrjv1971.azurecr.io/webapp:$(tag)
+
+
       
 - task: qetza.replacetokens.replacetokens-task.replacetokens@3
   displayName: 'Replace Image TAG'
