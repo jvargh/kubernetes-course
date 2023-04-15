@@ -21,9 +21,22 @@ steps:
       az acr login -n acrjv1971
       docker push acrjv1971.azurecr.io/webapp:$(tag)
 
-
+# - task: replacetokens@4
+#   inputs:
+#     rootDirectory: '02_kubernetes_aks'
+#     targetFiles: 'app-deploy.yaml'
+#     encoding: 'auto'
+#     tokenPattern: 'default'
+#     writeBOM: true
+#     actionOnMissing: 'warn'
+#     keepToken: false
+#     actionOnNoFiles: 'continue'
+#     enableTransforms: false
+#     enableRecursion: false
+#     useLegacyPattern: false
+#     enableTelemetry: true
       
-- task: qetza.replacetokens.replacetokens-task.replacetokens@3
+- task: replacetokens@4
   displayName: 'Replace Image TAG'
   inputs:
     rootDirectory: '02_kubernetes_aks'
