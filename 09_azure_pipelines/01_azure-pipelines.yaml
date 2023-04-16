@@ -1,6 +1,7 @@
 pool:  
-  name: DockerLocalContainer 
-#   vmImage: ubuntu-latest
+ name: Default
+#  name: DockerLocalContainer 
+#  vmImage: ubuntu-latest
 
 trigger: none
 # - main
@@ -15,8 +16,8 @@ steps:
   displayName: Docker Build & Push
   inputs:
     azureSubscription: 'aksha'
-    # scriptType: 'ps'
-    scriptType: 'bash'
+    scriptType: 'ps'
+    # scriptType: 'bash'
     scriptLocation: 'inlineScript'
     inlineScript: |
       docker build -t $(acr_name).azurecr.io/webapp:$(tag) app-dotnet
