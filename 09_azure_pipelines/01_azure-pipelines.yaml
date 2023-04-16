@@ -2,8 +2,8 @@ trigger:
  - main
 
 pool:  
-#  name: Default
-  name: DockerLocalContainer 
+ name: Default
+  # name: DockerLocalContainer 
 #  vmImage: ubuntu-latest
 
 variables:
@@ -29,18 +29,8 @@ steps:
   inputs:
     rootDirectory: '02_kubernetes_aks'
     targetFiles: 'app-deploy.yaml'
-    # encoding: 'auto'
-    # writeBOM: true
-    # actionOnMissing: 'warn'
-    # keepToken: false
     tokenPrefix: '#{'
     tokenSuffix: '}#'    
-    # tokenPrefix: '__'
-    # tokenSuffix: '__'
-    # enableRecursion: false
-    # useLegacyPattern: false
-    # enableTransforms: false
-    # enableTelemetry: true
 
 - script: type 02_kubernetes_aks\app-deploy.yaml
 
