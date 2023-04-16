@@ -5,7 +5,8 @@ stages:
 - stage: build
 
   pool:
-   name: DockerLocalContainer
+    name: Default
+   # name: DockerLocalContainer
    # vmImage: ubuntu-latest
 
   jobs:
