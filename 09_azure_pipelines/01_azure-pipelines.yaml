@@ -15,7 +15,8 @@ steps:
   displayName: Docker Build & Push
   inputs:
     azureSubscription: 'aksha'
-    scriptType: 'ps'
+    # scriptType: 'ps'
+    scriptType: 'bash'
     scriptLocation: 'inlineScript'
     inlineScript: |
       docker build -t $(acr_name).azurecr.io/webapp:$(tag) app-dotnet
